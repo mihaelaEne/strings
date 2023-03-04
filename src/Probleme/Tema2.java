@@ -110,13 +110,41 @@ public class Tema2 {
         String cuv = scanner.nextLine();
 
         System.out.println("Sa se introduca ultimul cuvant: ");
-        String ultCuvant=scanner.nextLine();
+        String ultCuvant = scanner.nextLine();
 
+        String[] cuvinte = cuv.split("\\s+");
+        int ct = 0;
 
-
+        for (int i = 0; i < cuvinte.length; i++) {
+            if (cuvinte[i].equals(ultCuvant)) {
+                ct++;
+            }
+        }
+        System.out.println("Ultimul cuvant " + ultCuvant + "apare de: " + ct);
 
     }
+
     //todo:     f) interschimbati elementele sirului in oglinda fata de mijloc
+
+    public static void exF(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuv = scanner.nextLine();
+
+        char[] sirCuvinte=cuv.toCharArray();
+        int lungime= sirCuvinte.length;
+
+        for(int i=0; i<lungime/2; i++){
+            char aux=sirCuvinte[i];
+            sirCuvinte[i]= sirCuvinte[lungime-i];
+            sirCuvinte[lungime-i]=aux;
+        }
+
+      
+
+    }
+
+
     //todo:     g) cate litere mici avem? sunt toate literele consoane?
 
 
