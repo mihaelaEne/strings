@@ -136,16 +136,53 @@ public class Tema2 {
 
         for(int i=0; i<lungime/2; i++){
             char aux=sirCuvinte[i];
-            sirCuvinte[i]= sirCuvinte[lungime-i];
-            sirCuvinte[lungime-i]=aux;
+            sirCuvinte[i]= sirCuvinte[lungime-i-1];
+            sirCuvinte[lungime-i-1]=aux;
         }
 
-      
-
+      String listaFinalaCuvinte= new String(sirCuvinte);
+        System.out.println("Sirul in oglinda este: "+ listaFinalaCuvinte);
     }
 
 
     //todo:     g) cate litere mici avem? sunt toate literele consoane?
+
+    public static void exG(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuvinte = scanner.nextLine();
+
+        int nrLitereMici=0;
+        boolean suntToateConsoane=true;
+
+        for(char c:cuvinte.toCharArray()){
+            if(Character.isLowerCase(c)){
+                nrLitereMici++;
+
+            }
+
+
+            switch (c){
+                case'a':
+                case'e':
+                case'i':
+                case'o':
+                case'u':
+
+                    suntToateConsoane=false;
+                    break;
+
+                default:break;
+            }
+        }
+        System.out.println("Numarul de litere mici este : "+nrLitereMici);
+        if(suntToateConsoane){
+            System.out.println("toate literele din sir sunt consoane");
+        }else{
+            System.out.println("Sirul contine si vocale");
+        }
+
+    }
 
 
     //EX 2
