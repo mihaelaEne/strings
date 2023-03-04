@@ -188,6 +188,40 @@ public class Tema2 {
     //EX 2
     //todo:     SE CITESTE UN SIR DE CARACTERE DE MAXIM 200 DE CARACTERE, CUVINTE SEPARATE PRIN SEPARATORII " .!?;:  "
     //todo:     a) realizati un nou sir cu toate cuvintele palindroame
+
+
+    public static boolean estePalindrom(String cuv){
+        int i=0;
+        int j=cuv.length()-1;
+
+        while(i<j){
+            if(cuv.charAt(i)!=cuv.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+
+        return true;
+    }
+
+    public static void ex2A(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuv = scanner.nextLine();
+
+
+        String [] cuvinte= cuv.split("");
+        String cuvintePalindroame= "";
+        for(String aux:cuvinte){
+            if(estePalindrom(aux)){
+                cuvintePalindroame+=aux+" ";
+            }
+        }
+
+        System.out.println(" cuvintele palindroame sunt: "+ cuvintePalindroame);
+
+    }
     //todo:     b) afisati cuvantul ce are cele mai multe vocale
     //todo:     c) modificati sirul citit astfel incat sa stergeti toate cuvintele ce au mai putin de 4 caractere
     //todo:     d) care este al treilea cuvant citit?
