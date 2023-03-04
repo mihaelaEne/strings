@@ -126,59 +126,60 @@ public class Tema2 {
 
     //todo:     f) interschimbati elementele sirului in oglinda fata de mijloc
 
-    public static void exF(){
+    public static void exF() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduceti cuvintele: ");
         String cuv = scanner.nextLine();
 
-        char[] sirCuvinte=cuv.toCharArray();
-        int lungime= sirCuvinte.length;
+        char[] sirCuvinte = cuv.toCharArray();
+        int lungime = sirCuvinte.length;
 
-        for(int i=0; i<lungime/2; i++){
-            char aux=sirCuvinte[i];
-            sirCuvinte[i]= sirCuvinte[lungime-i-1];
-            sirCuvinte[lungime-i-1]=aux;
+        for (int i = 0; i < lungime / 2; i++) {
+            char aux = sirCuvinte[i];
+            sirCuvinte[i] = sirCuvinte[lungime - i - 1];
+            sirCuvinte[lungime - i - 1] = aux;
         }
 
-      String listaFinalaCuvinte= new String(sirCuvinte);
-        System.out.println("Sirul in oglinda este: "+ listaFinalaCuvinte);
+        String listaFinalaCuvinte = new String(sirCuvinte);
+        System.out.println("Sirul in oglinda este: " + listaFinalaCuvinte);
     }
 
 
     //todo:     g) cate litere mici avem? sunt toate literele consoane?
 
-    public static void exG(){
+    public static void exG() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduceti cuvintele: ");
         String cuvinte = scanner.nextLine();
 
-        int nrLitereMici=0;
-        boolean suntToateConsoane=true;
+        int nrLitereMici = 0;
+        boolean suntToateConsoane = true;
 
-        for(char c:cuvinte.toCharArray()){
-            if(Character.isLowerCase(c)){
+        for (char c : cuvinte.toCharArray()) {
+            if (Character.isLowerCase(c)) {
                 nrLitereMici++;
 
             }
 
 
-            switch (c){
-                case'a':
-                case'e':
-                case'i':
-                case'o':
-                case'u':
+            switch (c) {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
 
-                    suntToateConsoane=false;
+                    suntToateConsoane = false;
                     break;
 
-                default:break;
+                default:
+                    break;
             }
         }
-        System.out.println("Numarul de litere mici este : "+nrLitereMici);
-        if(suntToateConsoane){
+        System.out.println("Numarul de litere mici este : " + nrLitereMici);
+        if (suntToateConsoane) {
             System.out.println("toate literele din sir sunt consoane");
-        }else{
+        } else {
             System.out.println("Sirul contine si vocale");
         }
 
@@ -190,12 +191,12 @@ public class Tema2 {
     //todo:     a) realizati un nou sir cu toate cuvintele palindroame
 
 
-    public static boolean estePalindrom(String cuv){
-        int i=0;
-        int j=cuv.length()-1;
+    public static boolean estePalindrom(String cuv) {
+        int i = 0;
+        int j = cuv.length() - 1;
 
-        while(i<j){
-            if(cuv.charAt(i)!=cuv.charAt(j)){
+        while (i < j) {
+            if (cuv.charAt(i) != cuv.charAt(j)) {
                 return false;
             }
             i++;
@@ -205,24 +206,62 @@ public class Tema2 {
         return true;
     }
 
-    public static void ex2A(){
+    public static void ex2A() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduceti cuvintele: ");
         String cuv = scanner.nextLine();
 
 
-        String [] cuvinte= cuv.split("");
-        String cuvintePalindroame= "";
-        for(String aux:cuvinte){
-            if(estePalindrom(aux)){
-                cuvintePalindroame+=aux+" ";
+        String[] cuvinte = cuv.split("");
+        String cuvintePalindroame = "";
+        for (String aux : cuvinte) {
+            if (estePalindrom(aux)) {
+                cuvintePalindroame += aux + " ";
             }
         }
 
-        System.out.println(" cuvintele palindroame sunt: "+ cuvintePalindroame);
+        System.out.println(" cuvintele palindroame sunt: " + cuvintePalindroame);
 
     }
     //todo:     b) afisati cuvantul ce are cele mai multe vocale
+
+
+    public static int contorVocale(String cuv){
+        int ct=0;
+
+        for(int i=0; i<cuv.length(); i++){
+            char aux=cuv.charAt(i);
+            if(aux=='a'||aux=='e'||aux=='i'||aux=='o'||aux=='u'){
+                ct++;
+            }
+        }
+        return ct;
+
+    }
+
+    //nu e bun
+    public static void ex2B() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuv = scanner.nextLine();
+
+        String [] cuvinte= cuv.split("");
+        int maximVocale=0;
+        String cuvinteCuMaxDeVocale=null;
+
+        for(String aux:cuvinte){
+            int nrVocale=contorVocale(aux);
+
+            if(nrVocale>maximVocale){
+                maximVocale=nrVocale;
+                cuvinteCuMaxDeVocale=aux;
+            }
+            System.out.println("cuvantul cu cele mai multe vocale este : "+ cuvinteCuMaxDeVocale);
+        }
+
+
+
+    }
     //todo:     c) modificati sirul citit astfel incat sa stergeti toate cuvintele ce au mai putin de 4 caractere
     //todo:     d) care este al treilea cuvant citit?
     // Daca sirul nu are cel putin 3 cuvinte se va afisa un mesaj.

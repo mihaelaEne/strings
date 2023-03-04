@@ -25,7 +25,7 @@ public class Main {
 
                             //tema2
 
-        ex2A();
+        ex2B();
 
 
 
