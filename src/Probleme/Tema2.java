@@ -334,48 +334,61 @@ public class Tema2 {
     }
 
 
-        //todo:     c)stergeti toate C si dublati toate literele D
-        // (C si D - un caracter citit de la tastaura)
-        public static void ex3C() {
-            Scanner scanner = new Scanner(System.in);
+    //todo:     c)stergeti toate C si dublati toate literele D
+    // (C si D - un caracter citit de la tastaura)
+    public static void ex3C() {
+        Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Introduceti sirul de caractere: ");
-            String sirCuv = scanner.nextLine();
-
-            sirCuv = sirCuv.replace("C", "");
-
-            StringBuilder rez = new StringBuilder();
-            for (char c : sirCuv.toCharArray()) {
-                if (c == 'D') {
-                    rez.append("DD");
-                } else {
-                    rez.append(c);
-                }
-            }
-
-            System.out.println("Rezultat: " + rez);
-        }
-
-
-        //todo: se intr de la tastaura un sir de caractere. Sa se inverseze cuvintele din sir care nu sunt polindroame
-
-    public static void ex4(){
-
-        Scanner scanner=new Scanner(System.in);
         System.out.print("Introduceti sirul de caractere: ");
         String sirCuv = scanner.nextLine();
 
+        sirCuv = sirCuv.replace("C", "");
+
+        StringBuilder rez = new StringBuilder();
+        for (char c : sirCuv.toCharArray()) {
+            if (c == 'D') {
+                rez.append("DD");
+            } else {
+                rez.append(c);
+            }
+        }
+
+        System.out.println("Rezultat: " + rez);
+    }
 
 
+    //todo: se intr de la tastaura un sir de caractere. Sa se inverseze cuvintele din sir care nu sunt polindroame
 
 
+    public static String cuvantIntors(String sirCuvinte) {
+        String text = "";
+        for (int i = sirCuvinte.length() - 1; i >= 0; i--) {
 
-
-
-
+            text += sirCuvinte.charAt(i);
+        }
+        return text;
 
     }
 
+    public static void ex4() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduceti sirul de caractere: ");
+        String sirCuv = scanner.nextLine();
+        String[] cuvinte = sirCuv.split("\\s+");
+        String rez = "";
+
+        for (String aux : cuvinte) {
+            if (!estePalindrom(aux)) {
+                String cuvIntors=cuvantIntors(aux);
+                rez+=cuvIntors+ " ";
+            }else{
+                rez+=aux+" ";
+            }
+        }
+        System.out.println("Sirul final este: "+ rez.trim());
+
     }
+}
 
 

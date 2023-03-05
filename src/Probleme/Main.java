@@ -24,9 +24,12 @@ public class Main {
 
 
                             //tema2
+//        String text="mere";
+//
+//        System.out.println( cuvantIntors(text));
+//
 
-        ex3C();
-
+ex4();
 
 
     }
