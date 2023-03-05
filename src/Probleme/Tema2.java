@@ -226,12 +226,12 @@ public class Tema2 {
     //todo:     b) afisati cuvantul ce are cele mai multe vocale
 
 
-    public static int contorVocale(String cuv){
-        int ct=0;
+    public static int contorVocale(String cuv) {
+        int ct = 0;
 
-        for(int i=0; i<cuv.length(); i++){
-            char aux=cuv.charAt(i);
-            if(aux=='a'||aux=='e'||aux=='i'||aux=='o'||aux=='u'){
+        for (int i = 0; i < cuv.length(); i++) {
+            char aux = cuv.charAt(i);
+            if (aux == 'a' || aux == 'e' || aux == 'i' || aux == 'o' || aux == 'u') {
                 ct++;
             }
         }
@@ -239,32 +239,68 @@ public class Tema2 {
 
     }
 
-    //nu e bun
+
     public static void ex2B() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduceti cuvintele: ");
         String cuv = scanner.nextLine();
 
-        String [] cuvinte= cuv.split("");
-        int maximVocale=0;
-        String cuvinteCuMaxDeVocale=null;
+        String[] cuvinte = cuv.split("");
+        int maximVocale = 0;
+        String cuvinteCuMaxDeVocale = null;
 
-        for(String aux:cuvinte){
-            int nrVocale=contorVocale(aux);
+        for (String aux : cuvinte) {
+            int nrVocale = contorVocale(aux);
 
-            if(nrVocale>maximVocale){
-                maximVocale=nrVocale;
-                cuvinteCuMaxDeVocale=aux;
+            if (nrVocale > maximVocale) {
+                maximVocale = nrVocale;
+                cuvinteCuMaxDeVocale = aux;
             }
-            System.out.println("cuvantul cu cele mai multe vocale este : "+ cuvinteCuMaxDeVocale);
+            System.out.println("cuvantul cu cele mai multe vocale este : " + cuvinteCuMaxDeVocale);
         }
-
 
 
     }
     //todo:     c) modificati sirul citit astfel incat sa stergeti toate cuvintele ce au mai putin de 4 caractere
+
+    public static void ex2C() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuv = scanner.nextLine();
+        String[] splitCuvinte = cuv.split("");
+        String rezultat ="";
+
+        for (String aux : splitCuvinte) {
+            if (aux.length() >= 4) {
+                rezultat+=aux;
+            }
+        }
+        String textFinal = rezultat;
+        System.out.println(textFinal);
+
+    }
+
+
     //todo:     d) care este al treilea cuvant citit?
     // Daca sirul nu are cel putin 3 cuvinte se va afisa un mesaj.
+    public static void ex2D() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuv = scanner.nextLine();
+        String[] splitCuvinte = cuv.split("");
+
+        if(splitCuvinte.length<3){
+            System.out.println("introduceti cel putin 3 cuvinte ");
+            return;
+        }
+        System.out.println("al treilea cuvant este : "+ splitCuvinte[2]);
+
+        }
+
+
+
+
+
     //todo:     e) stergeti cuvintele de exact 5 litere ce au prima si ultima litera identica.
     //todo:     f) dublati grupurile de 3 litere identice
     //todo:     g) transformati ultima litera din fiecare cuvant (doar daca este litera mica) in litera mare
