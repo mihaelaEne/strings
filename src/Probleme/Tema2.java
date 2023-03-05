@@ -1,5 +1,6 @@
 package Probleme;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Tema2 {
@@ -380,15 +381,111 @@ public class Tema2 {
 
         for (String aux : cuvinte) {
             if (!estePalindrom(aux)) {
-                String cuvIntors=cuvantIntors(aux);
-                rez+=cuvIntors+ " ";
-            }else{
+                String cuvIntors = cuvantIntors(aux);
+                rez += cuvIntors + " ";
+            } else {
+                rez += aux + " ";
+            }
+        }
+        System.out.println("Sirul final este: " + rez.trim());
+
+    }
+
+    //todo:realizati un nou sir in care sa se puna toate cuvintele care apar o singura data in sir
+
+    public static void ex5() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti sirul de caractere: ");
+        String sirCuv = scanner.nextLine();
+        String[] cuvinte = sirCuv.split("\\s+");
+
+
+        String[] cuvinteUnice = new String[cuvinte.length];
+        int ct = 0;
+        for (int i = 0; i < cuvinte.length; i++) {
+            boolean apareDeMaiMulteOri = false;
+            for (int j = 0; j < cuvinte.length; j++) {
+                if (i != j && cuvinte[i].equals(cuvinte[j])) {
+                    apareDeMaiMulteOri = true;
+                    break;
+                }
+            }
+
+            if (!apareDeMaiMulteOri) {
+                cuvinteUnice[ct++] = cuvinte[i];
+            }
+        }
+
+        System.out.println("cuvintele care apar o singura data in sirul initial sunt : ");
+        for (int i = 0; i < ct; i++) {
+            System.out.println( cuvinteUnice[i] + " ");
+
+        }
+
+    }
+
+
+    //todo:sa se stearga cuvintele care au 5 litere
+
+
+
+
+    public static void ex6(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti sirul de caractere: ");
+        String sirCuv = scanner.nextLine();
+
+        String [] cuvinte=sirCuv.split(" ");
+        String rez=" ";
+        for(String aux: cuvinte){
+            if(aux.length()!=5){
                 rez+=aux+" ";
             }
         }
-        System.out.println("Sirul final este: "+ rez.trim());
-
+        System.out.println(rez.trim());
     }
+
+
+    //todo: dublati grupurile de 3 litere identice
+
+    public static void ex7(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti sirul de caractere: ");
+        String sirCuv = scanner.nextLine();
+
+        String rez="";
+        for(int i=0; i<sirCuv.length(); i++){
+            char aux=sirCuv.charAt(i);
+            rez+=aux;
+
+            if(i>1 && aux==sirCuv.charAt(i-1)&& aux==sirCuv.charAt(i-2)){
+                rez+=aux;
+            }
+        }
+
+        System.out.println("sirul final cu grupurile dublate este:"+ rez);
+    }
+
+
+    //todo: sa se sch prima litera mica a cuv in litaea mare
+    public static void ex8(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduceti sirul de caractere: ");
+        String sirCuv = scanner.nextLine();
+
+        String [] cuvinte= sirCuv.split(" ");
+        String rez="";
+
+       for (int i=0;i<cuvinte.length;i++){
+           rez+=Character.toUpperCase(cuvinte[i].charAt(0))+cuvinte[i].substring(1)+" ";
+       }
+
+
+        System.out.println(rez);
+    }
+
+
+
 }
 
 
