@@ -334,11 +334,28 @@ public class Tema2 {
     }
 
 
-        //todo:     c) sa se inverseze cuvintele duin sir ce NU sunt palindroame
-        //todo:     d) realizati un nou sir in care sa se puna toate cuvintele care au frecventa singulara in sir
-        // (singular- care apar doar o singura data in sirul citi)
-        //todo:     e) stergeti toate C si dublati toate literele D
+        //todo:     c)stergeti toate C si dublati toate literele D
         // (C si D - un caracter citit de la tastaura)
+        public static void ex3C() {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Introduceti sirul de caractere: ");
+            String sirCuv = scanner.nextLine();
+
+            sirCuv = sirCuv.replace("C", "");
+
+            StringBuilder rez = new StringBuilder();
+            for (char c : sirCuv.toCharArray()) {
+                if (c == 'D') {
+                    rez.append("DD");
+                } else {
+                    rez.append(c);
+                }
+            }
+
+            System.out.println("Rezultat: " + rez);
+        }
+
 
 
     }
