@@ -268,11 +268,11 @@ public class Tema2 {
         System.out.println("Introduceti cuvintele: ");
         String cuv = scanner.nextLine();
         String[] splitCuvinte = cuv.split("");
-        String rezultat ="";
+        String rezultat = "";
 
         for (String aux : splitCuvinte) {
             if (aux.length() >= 4) {
-                rezultat+=aux;
+                rezultat += aux;
             }
         }
         String textFinal = rezultat;
@@ -289,17 +289,13 @@ public class Tema2 {
         String cuv = scanner.nextLine();
         String[] splitCuvinte = cuv.split("");
 
-        if(splitCuvinte.length<3){
+        if (splitCuvinte.length < 3) {
             System.out.println("introduceti cel putin 3 cuvinte ");
             return;
         }
-        System.out.println("al treilea cuvant din sir este : "+ splitCuvinte[2]);
+        System.out.println("al treilea cuvant din sir este : " + splitCuvinte[2]);
 
-        }
-
-
-
-
+    }
 
 
     //EX3
@@ -310,18 +306,39 @@ public class Tema2 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduceti cuvintele: ");
         String cuv = scanner.nextLine();
-        String aux=cuv.replaceAll("\\s+", " ");
-        System.out.println("sirul final este :"+ aux);
-        
+        String aux = cuv.replaceAll("\\s+", " ");
+        System.out.println("sirul final este :" + aux);
+
     }
 
 
     //todo:     b) sa se faca prima litera din fiecare cuvant mare si sa se inlocuiasca ultima litera cu urmatoarea din alfabet
-    //todo:     c) sa se inverseze cuvintele duin sir ce NU sunt palindroame
-    //todo:     d) realizati un nou sir in care sa se puna toate cuvintele care au frecventa singulara in sir
-    // (singular- care apar doar o singura data in sirul citi)
-    //todo:     e) stergeti toate C si dublati toate literele D
-    // (C si D - un caracter citit de la tastaura)
+    public static void ex3B() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String sirIntrodus = scanner.nextLine();
+        String[] cuvinte = sirIntrodus.split(" ");
+        StringBuilder aux = new StringBuilder();
+        for (String cuv : cuvinte) {
+            char[] litere = cuv.toCharArray();
+            litere[0] = Character.toUpperCase(litere[0]);
+            int lastIndex = litere.length - 1;
+            if (Character.isLowerCase(litere[lastIndex])) {
+                char newLastLetter = (char) (litere[lastIndex] + 1);
+                litere[lastIndex] = Character.toUpperCase(newLastLetter);
+            }
+            aux.append(new String(litere)).append(" ");
+            System.out.println("sirul final este: " + aux.toString().trim());
+
+        }
+    }
 
 
-}
+        //todo:     c) sa se inverseze cuvintele duin sir ce NU sunt palindroame
+        //todo:     d) realizati un nou sir in care sa se puna toate cuvintele care au frecventa singulara in sir
+        // (singular- care apar doar o singura data in sirul citi)
+        //todo:     e) stergeti toate C si dublati toate literele D
+        // (C si D - un caracter citit de la tastaura)
+
+
+    }
