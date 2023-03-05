@@ -301,15 +301,21 @@ public class Tema2 {
 
 
 
-    //todo:     e) stergeti cuvintele de exact 5 litere ce au prima si ultima litera identica.
-    //todo:     f) dublati grupurile de 3 litere identice
-    //todo:     g) transformati ultima litera din fiecare cuvant (doar daca este litera mica) in litera mare
-    //todo:     h) sa se afiseze toate cuvintele din sir ce au prefix pe primul cuvant al textului
-
 
     //EX3
     //todo: SE CITESTE UN SIR DE MAXIM 100 DE CUVINTE DE LA TASTATURA, SEPARATE PRIN UNUL SAU MAI MULTE SPATII
+
     //todo:     a) sa se stearga toate spatiile multiple
+    public static void ex3A() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduceti cuvintele: ");
+        String cuv = scanner.nextLine();
+        String aux=cuv.replaceAll("\\s+", " ");
+        System.out.println("sirul final este :"+ aux);
+        
+    }
+
+
     //todo:     b) sa se faca prima litera din fiecare cuvant mare si sa se inlocuiasca ultima litera cu urmatoarea din alfabet
     //todo:     c) sa se inverseze cuvintele duin sir ce NU sunt palindroame
     //todo:     d) realizati un nou sir in care sa se puna toate cuvintele care au frecventa singulara in sir
