@@ -357,5 +357,25 @@ public class Tema2 {
         }
 
 
+        //todo: se intr de la tastaura un sir de caractere. Sa se inverseze cuvintele din sir care nu sunt polindroame
+
+    public static void ex4(){
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Introduceti sirul de caractere: ");
+        String sirCuv = scanner.nextLine();
+
+
+
+
+
+
+
+
+
 
     }
+
+    }
+
+
