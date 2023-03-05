@@ -293,7 +293,7 @@ public class Tema2 {
             System.out.println("introduceti cel putin 3 cuvinte ");
             return;
         }
-        System.out.println("al treilea cuvant este : "+ splitCuvinte[2]);
+        System.out.println("al treilea cuvant din sir este : "+ splitCuvinte[2]);
 
         }
 
